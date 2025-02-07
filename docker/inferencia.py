@@ -1,6 +1,9 @@
 import joblib
 import pandas as pd
-import sys
+import numpy as np
+import os
+
+input_file = '/mnt/data/TEST.csv'
 
 # Cargar los objetos serializados
 model = joblib.load('docker/model/modelOp.joblib')
@@ -34,10 +37,13 @@ def agrupar_direcciones(direccion):
             return grupo
     return "Otro"
 
+# Definir la fecha base para la conversión
+base_date = pd.to_datetime('2000-01-01')
 
 def preprocesar(data):
     print("Columnas esperadas por el modelo:", model.feature_names_in_)
     print("Columnas presentes en los datos iniciales:", data.columns)
+    print("Columnas en el archivo CSV:", data.columns)
 
     # 1. Normalizar formato numérico
     for col in data.select_dtypes(include=['object']).columns:
@@ -50,6 +56,11 @@ def preprocesar(data):
     for col in ['WindGustDir', 'WindDir9am', 'WindDir3pm']:
         if col in data.columns:
             data[col] = data[col].map(diccionario_invertido).fillna(data[col])
+
+    # . Convertir la columna 'Date' a una representación numérica (número de días desde la fecha base)
+    if 'Date' in data.columns:
+        data['Date'] = pd.to_datetime(data['Date'])
+        data['Date'] = (data['Date'] - base_date).dt.days  # Calcular días desde la fecha base
 
     # 3. Imputación de valores faltantes
     numeric_cols = data.select_dtypes(include='number').columns
@@ -101,8 +112,6 @@ def preprocesar(data):
     
     return data
 
-
-
 # Predicción
 def predecir(data):
     data_preprocesada = preprocesar(data.copy())
@@ -125,6 +134,10 @@ if __name__ == '__main__':
         for col in missing_cols:
             data[col] = 0
 
+        # Asegurarse de que la columna 'WindSpeed9am' esté presente
+        if 'WindSpeed9am' not in data.columns:
+            data['WindSpeed9am'] = 0  # O cualquier valor predeterminado que tenga sentido
+       
         # Predecir y guardar resultados
         predictions = predecir(data)
         data['Prediction'] = predictions
@@ -138,5 +151,3 @@ if __name__ == '__main__':
         print("Error: El archivo CSV está vacío o tiene un formato incorrecto.")
     except Exception as e:
         print(f"Ha ocurrido un error inesperado: {e}")
-
-
