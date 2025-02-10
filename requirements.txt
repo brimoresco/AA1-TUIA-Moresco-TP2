@@ -1,4 +1,0 @@
-pandas
-scikit-learn
-tensorflow
-pickle5  # Si usas pickle5, aunque generalmente pickle está incluido en Python
