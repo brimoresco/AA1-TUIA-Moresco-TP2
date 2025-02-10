@@ -2252,3 +2252,120 @@ Please also refer to the documentation for alternative solver options:
 2025-02-06 17:22:28,692:WARNING:C:\Users\brisa\AppData\Local\Temp\ipykernel_2956\142487796.py:18: FutureWarning: The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.
   metrics_df = pd.concat([metrics_df, new_row], ignore_index=True)
 
+2025-02-09 23:12:09,360:WARNING:C:\Users\brisa\AppData\Local\Temp\ipykernel_2956\1225913058.py:3: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  train['Date'] = pd.to_datetime(train['Date'])
+
+2025-02-09 23:12:09,434:WARNING:C:\Users\brisa\AppData\Local\Temp\ipykernel_2956\1225913058.py:4: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  test['Date'] = pd.to_datetime(test['Date'])
+
+2025-02-09 23:12:09,455:WARNING:C:\Users\brisa\AppData\Local\Temp\ipykernel_2956\1225913058.py:8: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  train['Date'] = (train['Date'] - base_date).dt.days
+
+2025-02-09 23:12:09,457:WARNING:C:\Users\brisa\AppData\Local\Temp\ipykernel_2956\1225913058.py:9: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  test['Date'] = (test['Date'] - base_date).dt.days
+
+2025-02-09 23:12:33,492:WARNING:C:\Users\brisa\AppData\Local\Temp\ipykernel_2956\3373215346.py:4: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  train[col].fillna(train[col].median(), inplace=True)
+
+2025-02-09 23:14:21,351:WARNING:C:\Users\brisa\AppData\Local\Temp\ipykernel_2956\3373215346.py:8: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  train[bimodal_columns] = knn_imputer.fit_transform(train[bimodal_columns])
+
+2025-02-09 23:14:21,781:WARNING:C:\Users\brisa\AppData\Local\Temp\ipykernel_2956\3813415309.py:3: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  train[col].fillna(train[col].mode()[0], inplace=True)
+
+2025-02-09 23:14:22,609:WARNING:C:\Users\brisa\AppData\Local\Temp\ipykernel_2956\985624217.py:3: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  test[col].fillna(train[col].median(), inplace=True)  # Usar la mediana del conjunto de entrenamiento
+
+2025-02-09 23:14:39,655:WARNING:C:\Users\brisa\AppData\Local\Temp\ipykernel_2956\985624217.py:6: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  test[bimodal_columns] = knn_imputer.transform(test[bimodal_columns])  # Usar el imputador entrenado con el conjunto de entrenamiento
+
+2025-02-09 23:14:39,662:WARNING:C:\Users\brisa\AppData\Local\Temp\ipykernel_2956\985624217.py:10: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  test[col].fillna(train[col].mode()[0], inplace=True)  # Usar la moda del conjunto de entrenamiento
+
+2025-02-09 23:20:20,670:WARNING:C:\Users\brisa\AppData\Local\Temp\ipykernel_2956\1098054911.py:12: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  train['WindGustDir'] = train['WindGustDir'].map(diccionario_invertido)
+
+2025-02-09 23:20:20,676:WARNING:C:\Users\brisa\AppData\Local\Temp\ipykernel_2956\1098054911.py:15: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  train['WindDir9am'] = train['WindDir9am'].map(diccionario_invertido)
+
+2025-02-09 23:20:20,681:WARNING:C:\Users\brisa\AppData\Local\Temp\ipykernel_2956\1098054911.py:18: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  train['WindDir3pm'] = train['WindDir3pm'].map(diccionario_invertido)
+
+2025-02-09 23:20:20,971:WARNING:C:\Users\brisa\AppData\Local\Temp\ipykernel_2956\1802969872.py:12: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  test['WindGustDir'] = test['WindGustDir'].map(diccionario_invertido)
+
+2025-02-09 23:20:20,975:WARNING:C:\Users\brisa\AppData\Local\Temp\ipykernel_2956\1802969872.py:15: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  test['WindDir9am'] = test['WindDir9am'].map(diccionario_invertido)
+
+2025-02-09 23:20:20,977:WARNING:C:\Users\brisa\AppData\Local\Temp\ipykernel_2956\1802969872.py:18: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  test['WindDir3pm'] = test['WindDir3pm'].map(diccionario_invertido)
+
+2025-02-09 23:21:39,799:WARNING:c:\Users\brisa\AppData\Local\Programs\Python\Python311\Lib\site-packages\sklearn\linear_model\_logistic.py:469: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+
